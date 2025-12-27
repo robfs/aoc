@@ -90,9 +90,7 @@ def main(filename: str) -> None:
         data: list[str] = f.read().splitlines()
 
     machines = list(map(Machine.from_input, data))
-    total: int = 0
-    for machine in machines:
-        total += machine.solve()
+    total: int = sum(map(lambda x: x.solve(), machines))
 
     print(f"Solution: {total}")
 
